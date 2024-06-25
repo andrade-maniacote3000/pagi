@@ -1,0 +1,35 @@
+from flask import Flask
+import random
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello_world():
+    
+
+    return '<h1><a href="http://127.0.0.1:5000/moneda"> moneda<a/> <a href="http://127.0.0.1:5000/datos"> daticos<a/> </h1>'
+
+@app.route("/miRuta")
+def presentacion():
+    return "<h2> jijijija </h2>"
+
+@app.route("/datos")
+def daticos():
+    listdat = ["tu pupila puede estar dilatada entre 3 y 4 horas.", 
+               "El Jenkem, que procede de la deformación del vocablo Genkem referido a cualquier sustancia con efectos similares a los del pegamento, es una droga producida a partir de desechos fecales.", 
+               " el Somniosus microcephalus (tiburon de groelandia) vive alrededor de 400-500 años"] 
+    
+    
+    return f'<p>{random.choice(listdat)}</p>'
+
+@app.route("/moneda")
+def cosas():
+    lista = ["cara",
+             "sello"]
+
+        
+    return f'<p>{random.choice(lista)}</p>'
+
+
+
+app.run(debug=True)
